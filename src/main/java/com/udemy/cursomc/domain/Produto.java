@@ -9,10 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
-
-import org.hibernate.annotations.ManyToAny;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Produto implements Serializable {
@@ -24,11 +22,14 @@ public class Produto implements Serializable {
 	private String nome;
 	private Double preco;
 	
-	@ManyToAny
-	@JoinTable("PRODUTO_CATEGORIA",
-			JoinColumn = @JoinColumn(name="produto_id"),
-			inverseJoinColum = @JoinColumns(name="categoria_id")
-			)
+	@ManyToMany
+	@JoinTable(
+	        name="PRODUTO_CATEGORIA",
+	        joinColumns=
+	            @JoinColumn(name="PRODUTO_ID", referencedColumnName="ID"),
+	        inverseJoinColumns=
+	            @JoinColumn(name="CATEGORIA_ID", referencedColumnName="ID")
+	    )
 	
 	private List<Categoria> categorias = new ArrayList<>();
 	
