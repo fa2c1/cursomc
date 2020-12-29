@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.udemy.cursomc.domain.Categorias;
+import com.udemy.cursomc.domain.Categoria;
 
 @RestController
 @RequestMapping(value="/categorias")
 public class CategoriaResources {
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public List<Categorias> Listar() {
+	public List<Categoria> Listar() {
 		
-		Categorias cat1 = new Categorias(1, "Informatica");
-		Categorias cat2 = new Categorias(2, "Escritorio");
+		Categoria cat1 = new Categoria(1, "Informatica");
+		Categoria cat2 = new Categoria(2, "Escritorio");
 		
-		List<Categorias> lista = new ArrayList<>();
+		List<Categoria> lista = new ArrayList<>();
 		lista.add(cat1);
 		lista.add(cat2);
 		
