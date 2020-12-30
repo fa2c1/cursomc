@@ -1,6 +1,6 @@
 package com.udemy.cursomc.services.exception;
 
-public class ObjectNotFoundException extends RumtimeException {
+public class ObjectNotFoundException extends RuntimeException {
 	
 	private static final long serialVersionUID = 1L;
 	
